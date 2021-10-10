@@ -1,5 +1,7 @@
 # Bellow_SPA_Toolbox
 
+BellowSPA Toolbox is an interface that helps the design process of bending bellow soft pneumatic actuators. This software simulates and analyzes the design of the motion and force performance of the bending bellow soft pneumatic actuators via theoretical modeling and finite element analysis simulation. 
+
 ## Technologies
 Matlab R2020a (with Symbolic Math Toolbox) + Comsol Multiphysics 5.6 (with Nonlinear Structural Materials Module)
 
