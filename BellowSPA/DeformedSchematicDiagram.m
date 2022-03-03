@@ -211,12 +211,12 @@ box_3 = (t+ro+ri)*[1 1];
 boy_3 = [0 -t];
 box_4 = [(ro+t+ri) (ro+t+ro)]; 
 boy_4 = -t*[1 1];
-box_5 = [box_1(1) (box_1(1) - (ri+ro)*cos(AngularDeflection))]; % from inner bottom layer to bellow layer
-boy_5 = [boy_1(1) (boy_1(1) - (ri+ro)*sin(AngularDeflection))];
+box_5 = [box_1(1) (box_1(1) - (ri+OuterRadius)*cos(AngularDeflection))]; % from inner bottom layer to bellow layer
+boy_5 = [boy_1(1) (boy_1(1) - (ri+OuterRadius)*sin(AngularDeflection))];
 box_6 = [box_2(length(box_2)) (box_2(length(box_2)) + t*sin(AngularDeflection))]; % from outer bottom layer to the end cap
 boy_6 = [boy_2(length(boy_2)) (boy_2(length(boy_2)) - t*cos(AngularDeflection))];
-box_7 = [box_6(2) (box_6(2) - (ri+ro+3*t)*cos(AngularDeflection))]; % along the end cap
-boy_7 = [boy_6(2) (boy_6(2) - (ri+ro+3*t)*sin(AngularDeflection))];
+box_7 = [box_6(2) (box_6(2) - (ri+OuterRadius+3*t)*cos(AngularDeflection))]; % along the end cap
+boy_7 = [boy_6(2) (boy_6(2) - (ri+OuterRadius+3*t)*sin(AngularDeflection))];
 box_8 = fx_2(2)*[1 1]; % frame connector to the outer bottom layer
 boy_8 = [0 -t];
 
@@ -251,12 +251,12 @@ fill(bX, bY, [0.5 0.5 0.5],'LineStyle','none', 'FaceAlpha', 0.5);
 
 n = 1;
 % Inner Bellow
-LeftLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection  + OuterRadius + InnerRadius + r2) * cos(pi + (n-1)*AngularDeflection/BellowNum);
-LeftLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection  + OuterRadius + InnerRadius + r2) * sin(pi + (n-1)*AngularDeflection/BellowNum);
-UpperArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + ro + ro - r1) * cos(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
-UpperArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + ro + ro - r1) * sin(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
-RightLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + ro + ri + r2) * cos(pi + (n)*AngularDeflection/BellowNum);
-RightLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + ro + ri + r2) * sin(pi + (n)*AngularDeflection/BellowNum);
+LeftLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection  + OuterRadius + ri + r2) * cos(pi + (n-1)*AngularDeflection/BellowNum);
+LeftLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection  + OuterRadius + ri + r2) * sin(pi + (n-1)*AngularDeflection/BellowNum);
+UpperArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + OuterRadius + ro - r1) * cos(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
+UpperArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + OuterRadius + ro - r1) * sin(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
+RightLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + OuterRadius + ri + r2) * cos(pi + (n)*AngularDeflection/BellowNum);
+RightLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + OuterRadius + ri + r2) * sin(pi + (n)*AngularDeflection/BellowNum);
 ThetaLeftLower = (n-1)*AngularDeflection/BellowNum: -0.001: (n-1)*AngularDeflection/BellowNum - Phi2;
 ThetaUpper = pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2 - Phi1: 0.001 : pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2 + Phi1;
 ThetaRightLower = (n)*AngularDeflection/BellowNum + Phi2: -0.001: (n)*AngularDeflection/BellowNum;
@@ -284,12 +284,12 @@ plot(bx_5,by_5, '-k');
 
 
 % Outer Bellow
-LeftLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection  + OuterRadius + InnerRadius + r2) * cos(pi + (n-1)*AngularDeflection/BellowNum);
-LeftLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection  + OuterRadius + InnerRadius + r2) * sin(pi + (n-1)*AngularDeflection/BellowNum);
-UpperArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + ro + ro - r1) * cos(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
-UpperArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + ro + ro - r1) * sin(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
-RightLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + ro + ri + r2) * cos(pi + (n)*AngularDeflection/BellowNum);
-RightLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + ro + ri + r2) * sin(pi + (n)*AngularDeflection/BellowNum);
+LeftLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection  + OuterRadius + ri + r2) * cos(pi + (n-1)*AngularDeflection/BellowNum);
+LeftLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection  + OuterRadius + ri + r2) * sin(pi + (n-1)*AngularDeflection/BellowNum);
+UpperArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + OuterRadius + ro - r1) * cos(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
+UpperArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + OuterRadius + ro - r1) * sin(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
+RightLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + OuterRadius + ri + r2) * cos(pi + (n)*AngularDeflection/BellowNum);
+RightLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + OuterRadius + ri + r2) * sin(pi + (n)*AngularDeflection/BellowNum);
 ThetaLeftLower = (n-1)*AngularDeflection/BellowNum - Phi2: 0.001: (n-1)*AngularDeflection/BellowNum;
 ThetaUpper = pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2 + Phi1: -0.001 : pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2 - Phi1;
 ThetaRightLower = (n)*AngularDeflection/BellowNum: 0.001: (n)*AngularDeflection/BellowNum + Phi2;
@@ -319,12 +319,12 @@ fill(bX, bY, [0.9 0.85 0],'LineStyle','none', 'FaceAlpha', 0.5);
 
 for n = 2:1:BellowNum-1
     % inner bellow
-    LeftLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection  + ro + ri + r2) * cos(pi + (n-1)*AngularDeflection/BellowNum);
-    LeftLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection  + ro + ri + r2) * sin(pi + (n-1)*AngularDeflection/BellowNum);
-    UpperArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + ro + ro - r1) * cos(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
-    UpperArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + ro + ro - r1) * sin(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
-    RightLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + ro + ri + r2) * cos(pi + (n)*AngularDeflection/BellowNum);
-    RightLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + ro + ri + r2) * sin(pi + (n)*AngularDeflection/BellowNum);
+    LeftLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection  + OuterRadius + ri + r2) * cos(pi + (n-1)*AngularDeflection/BellowNum);
+    LeftLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection  + OuterRadius + ri + r2) * sin(pi + (n-1)*AngularDeflection/BellowNum);
+    UpperArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + OuterRadius + ro - r1) * cos(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
+    UpperArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + OuterRadius + ro - r1) * sin(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
+    RightLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + OuterRadius + ri + r2) * cos(pi + (n)*AngularDeflection/BellowNum);
+    RightLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + OuterRadius + ri + r2) * sin(pi + (n)*AngularDeflection/BellowNum);
     ThetaLeftLower = (n-1)*AngularDeflection/BellowNum: -0.001: (n-1)*AngularDeflection/BellowNum - Phi2;
     ThetaUpper = pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2 - Phi1: 0.001 : pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2 + Phi1;
     ThetaRightLower = (n)*AngularDeflection/BellowNum + Phi2: -0.001: (n)*AngularDeflection/BellowNum;
@@ -350,12 +350,12 @@ for n = 2:1:BellowNum-1
     plot(bx_5,by_5, '-k');
     
     %outer bellow
-    LeftLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection  + ro + ri + r2) * cos(pi + (n-1)*AngularDeflection/BellowNum);
-    LeftLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection  + ro + ri + r2) * sin(pi + (n-1)*AngularDeflection/BellowNum);
-    UpperArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + ro + ro - r1) * cos(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
-    UpperArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + ro + ro - r1) * sin(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
-    RightLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + ro + ri + r2) * cos(pi + (n)*AngularDeflection/BellowNum);
-    RightLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + ro + ri + r2) * sin(pi + (n)*AngularDeflection/BellowNum);
+    LeftLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection  + OuterRadius + ri + r2) * cos(pi + (n-1)*AngularDeflection/BellowNum);
+    LeftLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection  + OuterRadius + ri + r2) * sin(pi + (n-1)*AngularDeflection/BellowNum);
+    UpperArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + OuterRadius + ro - r1) * cos(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
+    UpperArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + OuterRadius + ro - r1) * sin(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
+    RightLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + OuterRadius + ri + r2) * cos(pi + (n)*AngularDeflection/BellowNum);
+    RightLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + OuterRadius + ri + r2) * sin(pi + (n)*AngularDeflection/BellowNum);
     ThetaLeftLower = (n-1)*AngularDeflection/BellowNum - Phi2: 0.001: (n-1)*AngularDeflection/BellowNum;
     ThetaUpper = pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2 + Phi1: -0.001 : pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2 - Phi1;
     ThetaRightLower = (n)*AngularDeflection/BellowNum: 0.001: (n)*AngularDeflection/BellowNum + Phi2;
@@ -385,12 +385,12 @@ end
 
 n = BellowNum;
 % inner bellow
-LeftLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection  + ro + ri + r2) * cos(pi + (n-1)*AngularDeflection/BellowNum);
-LeftLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection  + ro + ri + r2) * sin(pi + (n-1)*AngularDeflection/BellowNum);
-UpperArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + ro + ro - r1) * cos(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
-UpperArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + ro + ro - r1) * sin(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
-RightLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + ro + ri + r2) * cos(pi + (n)*AngularDeflection/BellowNum);
-RightLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + ro + ri + r2) * sin(pi + (n)*AngularDeflection/BellowNum);
+LeftLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection  + OuterRadius + ri + r2) * cos(pi + (n-1)*AngularDeflection/BellowNum);
+LeftLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection  + OuterRadius + ri + r2) * sin(pi + (n-1)*AngularDeflection/BellowNum);
+UpperArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + OuterRadius + ro - r1) * cos(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
+UpperArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + OuterRadius + ro - r1) * sin(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
+RightLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + OuterRadius + ri + r2) * cos(pi + (n)*AngularDeflection/BellowNum);
+RightLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + OuterRadius + ri + r2) * sin(pi + (n)*AngularDeflection/BellowNum);
 ThetaLeftLower = (n-1)*AngularDeflection/BellowNum: -0.001: (n-1)*AngularDeflection/BellowNum - Phi2;
 ThetaUpper = pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2 - Phi1: 0.001 : pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2 + Phi1;
 ThetaRightLower = (n)*AngularDeflection/BellowNum + Phi2: -0.001: (n)*AngularDeflection/BellowNum;
@@ -416,12 +416,12 @@ plot(bx_4,by_4, '-k');
 plot(bx_5,by_5, '-k');
 
 % outer bellow
-LeftLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection  + ro + ri + r2) * cos(pi + (n-1)*AngularDeflection/BellowNum);
-LeftLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection  + ro + ri + r2) * sin(pi + (n-1)*AngularDeflection/BellowNum);
-UpperArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + ro + ro - r1) * cos(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
-UpperArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + ro + ro - r1) * sin(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
-RightLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + ro + ri + r2) * cos(pi + (n)*AngularDeflection/BellowNum);
-RightLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + ro + ri + r2) * sin(pi + (n)*AngularDeflection/BellowNum);
+LeftLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection  + OuterRadius + ri + r2) * cos(pi + (n-1)*AngularDeflection/BellowNum);
+LeftLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection  + OuterRadius + ri + r2) * sin(pi + (n-1)*AngularDeflection/BellowNum);
+UpperArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + OuterRadius + ro - r1) * cos(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
+UpperArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + OuterRadius + ro - r1) * sin(pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2);
+RightLowerArcXCenter = DeformedCenterX + ((EffectiveLength)/AngularDeflection + OuterRadius + ri + r2) * cos(pi + (n)*AngularDeflection/BellowNum);
+RightLowerArcYCenter = DeformedCenterY + ((EffectiveLength)/AngularDeflection + OuterRadius + ri + r2) * sin(pi + (n)*AngularDeflection/BellowNum);
 ThetaLeftLower = (n-1)*AngularDeflection/BellowNum - Phi2: 0.001: (n-1)*AngularDeflection/BellowNum;
 ThetaUpper = pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2 + Phi1: -0.001 : pi + (2*(n-1)+1)*AngularDeflection/BellowNum/2 - Phi1;
 ThetaRightLower = (n)*AngularDeflection/BellowNum: 0.001: (n)*AngularDeflection/BellowNum + Phi2;
