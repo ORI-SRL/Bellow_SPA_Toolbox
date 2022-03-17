@@ -80,9 +80,9 @@ while 1
     OuterRadiusData(i) = (ro-DY/2)*1000;
     R1Data(i) = (double(S.R1_new)-t/2)*1000;
     R2Data(i) = (double(S.R2_new)+t/2)*1000;
-    PHI1Data(i) = double(S.Phi1_new);
-    PHI2Data(i) = double(S.Phi2_new);
+    PHI1Data(i) = double(S.Phi1_new) - AngularDeflection/BellowNum/4;
+    PHI2Data(i) = double(S.Phi2_new) - AngularDeflection/BellowNum/4;
 end
 
-DeformedSchematicDiagram(EffectiveLength, AverageRadius, BellowNum, InnerRadius, WallThickness, InnerRadius, AverageRadius, (ro-DY/2)*1000, (double(S.R1_new)-t/2)*1000, (double(S.R2_new)+t/2)*1000, double(S.Phi1_new), double(S.Phi2_new), AngularDeflection);
+DeformedSchematicDiagram(EffectiveLength, AverageRadius, BellowNum, InnerRadius, WallThickness, InnerRadius, AverageRadius, (ro-DY/2)*1000, (double(S.R1_new)-t/2)*1000, (double(S.R2_new)+t/2)*1000, double(S.Phi1_new) - AngularDeflection/BellowNum/4, double(S.Phi2_new) - AngularDeflection/BellowNum/4, AngularDeflection);
 end

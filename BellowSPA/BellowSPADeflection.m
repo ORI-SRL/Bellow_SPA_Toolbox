@@ -1,15 +1,15 @@
 function out = model
 %
-% BellowSPAMotion.m
+% BellowSPADeflection.m
 %
-% Model exported on Oct 16 2021, 01:18 by COMSOL 5.6.0.401.
+% Model exported on Mar 10 2022, 10:58 by COMSOL 5.6.0.401.
 
 import com.comsol.model.*
 import com.comsol.model.util.*
 
 model = ModelUtil.create('Model');
 
-model.modelPath('C:\Users\lajesu3766\OneDrive - Nexus365\Yao\ICRA2022\BellowSPA');
+model.modelPath('C:\Users\yao\OneDrive - Nexus365\Yao\ICRA2022\BellowSPA\BellowSPA');
 
 model.label('BellowSPAMotion.mph');
 
@@ -744,5 +744,26 @@ model.result('pg7').feature('vol1').set('const', {'solid.refpntx' '0' 'Reference
 model.result('pg7').feature('vol1').set('colortable', 'RainbowLight');
 model.result('pg7').feature('vol1').set('resolution', 'normal');
 model.result('pg7').feature('vol1').feature('def1').set('scaleactive', true);
+
+model.label('BellowSPADeflection.mph');
+
+model.result('pg1').run;
+model.result('pg1').run;
+model.result('pg1').run;
+model.result('pg1').feature('vol1').set('rangecoloractive', false);
+model.result('pg1').run;
+model.result('pg3').run;
+model.result('pg3').feature('vol1').set('rangecoloractive', true);
+model.result('pg3').feature('vol1').set('rangecolormin', 0);
+model.result('pg3').feature('vol1').set('rangecoloractive', false);
+model.result('pg3').run;
+model.result('pg5').run;
+model.result('pg5').run;
+model.result('pg5').run;
+model.result('pg7').run;
+model.result('pg7').feature('vol1').set('rangecoloractive', true);
+model.result('pg7').feature('vol1').set('rangecolormin', 0);
+model.result('pg7').feature('vol1').set('rangecoloractive', false);
+model.result('pg7').run;
 
 out = model;
