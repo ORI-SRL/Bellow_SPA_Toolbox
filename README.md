@@ -16,4 +16,3 @@ The included MP4 video demonstrates the usability of the proposed open-source SP
 2. the introduction of the toolbox graphical user interface.
 3. a demonstration of the use of the toolbox for fast theoretical simulation in iterative design.
 4. a demonstration of the use of the toolbox for detailed FEA modelling.
-5. the toolbox is uploaded to GitHub and will be made public after the paper is accepted. Users need to have access to MATLAB and COMSOL Multiphysics.
